@@ -2,6 +2,7 @@
 namespace Sparav\Order;
 
 use Illuminate\Support\Facades\Http;
+use Sparav\Order\Models\CreateOrder;
 
 class OrderClientV1
 {
@@ -19,12 +20,15 @@ class OrderClientV1
     }
 
     /**
-     * Does nothing.
+     * Returns a single order with their subscription data etc.
      * @param int $order_id
      * @return null
      */
-    public function get(int $order_id) {
-        return null;
+    public function order(int $order_id) {
+        $response = Http::timeout(30)
+            ->withBasicAuth(env('SPARAV_ORDER_API_AUTH_USERNAME'), env('SPARAV_ORDER_API_AUTH_PASSWORD'))
+            ->post("https://sparavorderapiprod.azurewebsites.net/api/v1/order/{$order_id}");
+        return $response;
     }
 
 }
