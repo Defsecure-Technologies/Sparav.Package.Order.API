@@ -10,7 +10,7 @@
     "name": "sparav/order",
     "description": "Sparav Order API",
     "type": "project",
-    "license": "MIT",
+    "license": "MOT",
     "minimum-stability": "dev",
     "require": {}
 }
