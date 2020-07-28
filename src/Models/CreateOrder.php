@@ -15,8 +15,8 @@ class CreateOrder
     public string $email;
     public string $creditCardType;
     public string $creditCardNumber;
-    public string $expirationDate;
-    public string $CVV;
+    public string $creditcardexpirationDate;
+    public string $creditcardCVV;
     public string $tranType = "Sale";
     public string $shippingId;
     public string $ipAddress;
