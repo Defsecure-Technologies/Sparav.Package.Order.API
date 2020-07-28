@@ -9,7 +9,7 @@
     "name": "sparav/order",
     "description": "Sparav Order API",
     "type": "composer",
-    "license": "MOT",
+    "license": "MIT",
     "minimum-stability": "dev",
     "require": {}
 }
