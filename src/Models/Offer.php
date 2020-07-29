@@ -3,6 +3,7 @@
 
 namespace Sparav\Order\Models;
 
+
 class Offer
 {
 
@@ -12,16 +13,16 @@ class Offer
     public int $product_id;
     public int $billing_model_id;
     public int $quantity;
-    public bool $is_trial;
+    public Trial $trial;
 
-    public function __construct(int $id, int $product_id, int $billing_model_id, bool $is_trial, int $quantity = 1)
+    public function __construct(int $id, int $product_id, int $billing_model_id, Trial $trial, int $quantity = 1)
     {
         $this->id = $id;
         $this->offer_id = $this->id;
 
         $this->product_id = $product_id;
         $this->billing_model_id = $billing_model_id;
-        $this->is_trial = $is_trial;
+        $this->trial = $trial;
         $this->quantity = $quantity;
     }
 
