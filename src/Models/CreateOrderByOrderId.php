@@ -18,6 +18,6 @@ class CreateOrderByOrderId
     /**
      * @OA\Property(schema="Offer")
      */
-    public Offer $offers;
+    public array $offers;
 
 }
