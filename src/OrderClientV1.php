@@ -1,6 +1,7 @@
 <?php
 namespace Sparav\Order;
 
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Sparav\Order\Models\CreateOrder;
 
@@ -32,8 +33,19 @@ class OrderClientV1
     }
 
     /**
+     * @param CreateOrder $createOrder
+     * @return Response
+     */
+    public function createorderbyorderid(CreateOrder $createOrder) {
+        $response = Http::timeout(30)
+            ->withBasicAuth(env('SPARAV_ORDER_API_AUTH_USERNAME'), env('SPARAV_ORDER_API_AUTH_PASSWORD'))
+            ->post('https://sparavorderapiprod.azurewebsites.net/api/v1/order/byorderid', (array) $createOrder);
+        return $response;
+    }
+
+    /**
      * @param int $order_id
-     * @return \Illuminate\Http\Client\Response
+     * @return Response
      */
     public function orderforcerebill(int $order_id) {
         $response = Http::timeout(15)
