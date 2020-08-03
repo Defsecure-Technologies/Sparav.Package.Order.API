@@ -2,8 +2,6 @@
 
 namespace Sparav\Order\Models;
 
-use App\Models\Offer;
-
 class CreateOrderByOrderId
 {
 
