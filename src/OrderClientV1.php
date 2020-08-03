@@ -4,6 +4,7 @@ namespace Sparav\Order;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Sparav\Order\Models\CreateOrder;
+use Sparav\Order\Models\CreateOrderByOrderId;
 
 class OrderClientV1
 {
@@ -33,13 +34,13 @@ class OrderClientV1
     }
 
     /**
-     * @param CreateOrder $createOrder
+     * @param CreateOrderByOrderId $createOrderByOrderId
      * @return Response
      */
-    public function createorderbyorderid(CreateOrder $createOrder) {
+    public function createorderbyorderid(CreateOrderByOrderId $createOrderByOrderId) {
         $response = Http::timeout(30)
             ->withBasicAuth(env('SPARAV_ORDER_API_AUTH_USERNAME'), env('SPARAV_ORDER_API_AUTH_PASSWORD'))
-            ->post('https://sparavorderapiprod.azurewebsites.net/api/v1/order/byorderid', (array) $createOrder);
+            ->post('https://sparavorderapiprod.azurewebsites.net/api/v1/order/byorderid', (array) $createOrderByOrderId);
         return $response;
     }
 
