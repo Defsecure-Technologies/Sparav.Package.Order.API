@@ -29,7 +29,7 @@ class OrderClientV1
     public function order(int $order_id) {
         $response = Http::timeout(30)
             ->withBasicAuth(env('SPARAV_ORDER_API_AUTH_USERNAME'), env('SPARAV_ORDER_API_AUTH_PASSWORD'))
-            ->post("https://sparavorderapiprod.azurewebsites.net/api/v1/order/{$order_id}");
+            ->get("https://sparavorderapiprod.azurewebsites.net/api/v1/order/{$order_id}");
         return $response;
     }
 

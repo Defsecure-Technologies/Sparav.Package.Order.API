@@ -9,6 +9,7 @@
     "name": "sparav/order",
     "description": "Sparav Order API",
     "type": "Composer",
+    "version": "1.0.1",
     "license": "MIT",
     "minimum-stability": "dev",
     "require": {}
