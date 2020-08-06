@@ -5,6 +5,7 @@ use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Sparav\Order\Models\CreateOrder;
 use Sparav\Order\Models\CreateOrderByOrderId;
+use Sparav\Order\Models\SubscriptionOrderUpdate;
 
 class OrderClientV1
 {
@@ -54,6 +55,19 @@ class OrderClientV1
             ->post("https://sparavorderapiprod.azurewebsites.net/api/v1/order/forcebill", [
                 'order_id' => $order_id
             ]);
+        return $response;
+    }
+
+
+    /**
+     * Updates the order by changing a subscription product with another.
+     * @param SubscriptionOrderUpdate $subscriptionOrderUpdate
+     * @return Response
+     */
+    public function subscriptionorderupdate(SubscriptionOrderUpdate $subscriptionOrderUpdate) {
+        $response = Http::timeout(15)
+            ->withBasicAuth(env('SPARAV_ORDER_API_AUTH_USERNAME'), env('SPARAV_ORDER_API_AUTH_PASSWORD'))
+            ->put("https://sparavorderapiprod.azurewebsites.net/api/v1/order/subscriptionorderupdate", (array) $subscriptionOrderUpdate);
         return $response;
     }
 
