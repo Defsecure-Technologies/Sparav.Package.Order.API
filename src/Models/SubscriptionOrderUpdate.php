@@ -35,12 +35,12 @@ class SubscriptionOrderUpdate
 
 
     /**
-     * @OA\Property(type="number", example="19.99")
+     * @OA\Property(type="string", example="19.99")
      */
-    public float $new_recurring_price;
+    public string $new_recurring_price;
 
 
-    public function __construct(int $order_id, int $product_id, string $new_recurring_product_id, int $billing_model_id, float $new_recurring_price)
+    public function __construct(int $order_id, int $product_id, string $new_recurring_product_id, int $billing_model_id, string $new_recurring_price)
     {
         $this->order_id = $order_id;
         $this->product_id = $product_id;
