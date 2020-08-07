@@ -26,4 +26,19 @@ class CreateOrder
 
     public array $offers;
 
+    /**
+     * @OA\Property(type="string")
+     */
+    public ?string $AFID;
+
+    /**
+     * @OA\Property(type="string")
+     */
+    public ?string $SID;
+
+    /**
+     * @OA\Property(type="string")
+     */
+    public ?string $AFFID;
+
 }
