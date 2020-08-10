@@ -22,5 +22,11 @@ class UpdateCustomerIdOrder
      */
     public int $customer_id;
 
+    public function __construct(string  $sticky_order_id, int $customer_id)
+    {
+        $this->customer_id = $customer_id;
+        $this->sticky_order_id = $sticky_order_id;
+    }
+
 }
 
