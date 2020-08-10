@@ -58,14 +58,15 @@ class OrderClientV1
     }
 
     /**
-     * @param int $order_id
+     * @param array $data
      * @return Response
      */
-    public function orderforcerebill(int $order_id) {
+    public function orderforcerebill(array $data) {
         $response = Http::timeout(15)
             ->withBasicAuth(env('SPARAV_ORDER_API_AUTH_USERNAME'), env('SPARAV_ORDER_API_AUTH_PASSWORD'))
             ->post("https://sparavorderapiprod.azurewebsites.net/api/v1/order/forcebill", [
-                'order_id' => $order_id
+                'order_id' => $data['order_id'],
+                'flow_id' => $data['flow_id']
             ]);
         return $response;
     }
