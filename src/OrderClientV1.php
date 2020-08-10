@@ -1,6 +1,7 @@
 <?php
 namespace Sparav\Order;
 
+use App\Models\UpdateCustomerIdOrder;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Sparav\Order\Models\CreateOrder;
@@ -54,6 +55,18 @@ class OrderClientV1
         $response = Http::timeout(30)
             ->withBasicAuth(env('SPARAV_ORDER_API_AUTH_USERNAME'), env('SPARAV_ORDER_API_AUTH_PASSWORD'))
             ->post('https://sparavorderapiprod.azurewebsites.net/api/v1/order/orderflowexists', (array) $orderExistsOrderFlow);
+        return $response;
+    }
+
+    /**
+     * Updates customerID for the given order.
+     * @param UpdateCustomerIdOrder $updateCustomerIdOrder
+     * @return Response
+     */
+    public function updateCustomerIdOrder(UpdateCustomerIdOrder $updateCustomerIdOrder) {
+        $response = Http::timeout(30)
+            ->withBasicAuth(env('SPARAV_ORDER_API_AUTH_USERNAME'), env('SPARAV_ORDER_API_AUTH_PASSWORD'))
+            ->post('https://sparavorderapiprod.azurewebsites.net/api/v1/order/customerid', (array) $updateCustomerIdOrder);
         return $response;
     }
 
