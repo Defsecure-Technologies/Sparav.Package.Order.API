@@ -67,7 +67,7 @@ class OrderClientV1
     public function updateCustomerIdOrder(UpdateCustomerIdOrder $updateCustomerIdOrder) {
         $response = Http::timeout(30)
             ->withBasicAuth(env('SPARAV_ORDER_API_AUTH_USERNAME'), env('SPARAV_ORDER_API_AUTH_PASSWORD'))
-            ->post('https://sparavorderapiprod.azurewebsites.net/api/v1/order/customerid', (array) $updateCustomerIdOrder);
+            ->put('https://sparavorderapiprod.azurewebsites.net/api/v1/order/customerid', (array) $updateCustomerIdOrder);
         return $response;
     }
 
