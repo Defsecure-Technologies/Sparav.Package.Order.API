@@ -21,4 +21,9 @@ class CreateOrderByOrderId
      */
     public array $offers;
 
+    /**
+     * @OA\Property(type="flow_id")
+     */
+    public ?int $flow_id;
+
 }

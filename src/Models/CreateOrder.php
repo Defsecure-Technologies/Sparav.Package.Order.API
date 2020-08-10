@@ -41,4 +41,9 @@ class CreateOrder
      */
     public ?string $AFFID;
 
+    /**
+     * @OA\Property(type="flow_id")
+     */
+    public ?int $flow_id;
+
 }

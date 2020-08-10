@@ -5,6 +5,7 @@ use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Sparav\Order\Models\CreateOrder;
 use Sparav\Order\Models\CreateOrderByOrderId;
+use Sparav\Order\Models\OrderExistsOrderFlow;
 use Sparav\Order\Models\SubscriptionOrderUpdate;
 
 class OrderClientV1
@@ -42,6 +43,17 @@ class OrderClientV1
         $response = Http::timeout(30)
             ->withBasicAuth(env('SPARAV_ORDER_API_AUTH_USERNAME'), env('SPARAV_ORDER_API_AUTH_PASSWORD'))
             ->post('https://sparavorderapiprod.azurewebsites.net/api/v1/order/byorderid', (array) $createOrderByOrderId);
+        return $response;
+    }
+
+    /**
+     * @param OrderExistsOrderFlow $orderExistsOrderFlow
+     * @return Response
+     */
+    public function orderflowExists(OrderExistsOrderFlow $orderExistsOrderFlow) {
+        $response = Http::timeout(30)
+            ->withBasicAuth(env('SPARAV_ORDER_API_AUTH_USERNAME'), env('SPARAV_ORDER_API_AUTH_PASSWORD'))
+            ->post('https://sparavorderapiprod.azurewebsites.net/api/v1/order/orderflowexists', (array) $orderExistsOrderFlow);
         return $response;
     }
 
