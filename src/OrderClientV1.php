@@ -66,6 +66,7 @@ class OrderClientV1
             ->withBasicAuth(env('SPARAV_ORDER_API_AUTH_USERNAME'), env('SPARAV_ORDER_API_AUTH_PASSWORD'))
             ->post("https://sparavorderapiprod.azurewebsites.net/api/v1/order/forcebill", [
                 'order_id' => $data['order_id'],
+                'customer_id' => $data['customer_id'],
                 'flow_id' => $data['flow_id']
             ]);
         return $response;
