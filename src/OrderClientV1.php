@@ -102,13 +102,13 @@ class OrderClientV1
 
     /**
      * Updates the order by changing card details
-     * @param UpdateOrderCard $updateOrderCard
+     * @param array $orders
      * @return Response
      */
-    public function updateordercard(UpdateOrderCard $updateOrderCard) {
+    public function updateordercard(array $orders) {
         $response = Http::timeout(15)
             ->withBasicAuth(env('SPARAV_ORDER_API_AUTH_USERNAME'), env('SPARAV_ORDER_API_AUTH_PASSWORD'))
-            ->post("https://sparavorderapiprod.azurewebsites.net/api/v1/orders/card", (array) $updateOrderCard);
+            ->post("https://sparavorderapiprod.azurewebsites.net/api/v1/orders/card", $orders);
         return $response;
     }
 
