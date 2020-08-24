@@ -9,6 +9,7 @@ use Sparav\Order\Models\CreateOrderByOrderId;
 use Sparav\Order\Models\OrderExistsOrderFlow;
 use Sparav\Order\Models\SubscriptionOrderUpdate;
 use Sparav\Order\Models\UpdateCustomerIdOrder;
+use Sparav\Order\Models\UpdateOrderCard;
 
 class OrderClientV1
 {
@@ -99,4 +100,15 @@ class OrderClientV1
         return $response;
     }
 
+    /**
+     * Updates the order by changing card details
+     * @param UpdateOrderCard $updateOrderCard
+     * @return Response
+     */
+    public function updateordercard(UpdateOrderCard $updateOrderCard) {
+        $response = Http::timeout(15)
+            ->withBasicAuth(env('SPARAV_ORDER_API_AUTH_USERNAME'), env('SPARAV_ORDER_API_AUTH_PASSWORD'))
+            ->post("https://sparavorderapiprod.azurewebsites.net/api/v1/orders/card", (array) $updateOrderCard);
+        return $response;
+    }
 }
