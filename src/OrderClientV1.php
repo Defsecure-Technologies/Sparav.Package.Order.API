@@ -111,4 +111,17 @@ class OrderClientV1
             ->post("https://sparavorderapiprod.azurewebsites.net/api/v1/orders/card", (array) $updateOrderCard);
         return $response;
     }
+
+    /**
+     * Returns orders with their subscription data etc.
+     * @param int $customer_id
+     * @return null
+     */
+    public function orders(int $customer_id) {
+        $response = Http::timeout(30)
+            ->withBasicAuth(env('SPARAV_ORDER_API_AUTH_USERNAME'), env('SPARAV_ORDER_API_AUTH_PASSWORD'))
+            ->get("https://sparavorderapiprod.azurewebsites.net/api/v1/orders/{$customer_id}");
+        return $response;
+    }
+
 }
