@@ -9,7 +9,6 @@ use Sparav\Order\Models\CreateOrderByOrderId;
 use Sparav\Order\Models\OrderExistsOrderFlow;
 use Sparav\Order\Models\SubscriptionOrderUpdate;
 use Sparav\Order\Models\UpdateCustomerIdOrder;
-use Sparav\Order\Models\UpdateOrderCard;
 
 class OrderClientV1
 {
