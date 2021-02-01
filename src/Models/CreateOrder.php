@@ -46,4 +46,19 @@ class CreateOrder
      */
     public ?int $flow_id;
 
+    /**
+     * @OA\Property(type="cavv")
+     */
+    public ?string $cavv;
+
+    /**
+     * @OA\Property(type="eci")
+     */
+    public ?string $eci;
+
+    /**
+     * @OA\Property(type="cavv_algorithm")
+     */
+    public ?string $cavv_algorithm;
+
 }
