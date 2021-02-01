@@ -1,5 +1,5 @@
 <?php
-namespace Sparav\Order;
+namespace Sparav\Order\Enums;
 
 use BenSampo\Enum\Enum;
 
