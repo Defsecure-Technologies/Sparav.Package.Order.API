@@ -61,4 +61,9 @@ class CreateOrder
      */
     public ?string $cavv_algorithm;
 
+    /**
+     * @OA\Property(type="three_d_redirect")
+     */
+    public ?string $three_d_redirect;
+
 }
