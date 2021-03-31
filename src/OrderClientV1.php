@@ -38,6 +38,18 @@ class OrderClientV1
     }
 
     /**
+     * Returns sticky order.
+     * @param int $order_id
+     * @return null
+     */
+    public function stickyorder(string $order_id) {
+        $response = Http::timeout(30)
+            ->withBasicAuth(env('SPARAV_ORDER_API_AUTH_USERNAME'), env('SPARAV_ORDER_API_AUTH_PASSWORD'))
+            ->get("https://sparavorderapiprod.azurewebsites.net/api/v1/order/stickyorder/{$order_id}");
+        return $response;
+    }
+
+    /**
      * @param CreateOrderByOrderId $createOrderByOrderId
      * @return Response
      */
