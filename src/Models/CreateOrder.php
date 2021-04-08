@@ -1,30 +1,111 @@
 <?php
+
+
 namespace Sparav\Order\Models;
 
+
+/**
+ * @OA\Schema(
+ *   schema="CreateOrder",
+ *   type="object"
+ * )
+ */
 class CreateOrder
 {
 
+    /**
+     * @OA\Property(type="string")
+     */
     public string $firstName;
+    /**
+     * @OA\Property(type="string")
+     */
     public string $lastName;
+    /**
+     * @OA\Property(type="string")
+     */
     public string $shippingAddress1;
-    public string $shippingCity;
-    public string $shippingState;
-    public string $shippingCountry; // ALPHA 2
-    public string $shippingZip;
-    public string $phone;
-    public string $email;
-    public string $creditCardType;
-    public string $creditCardNumber;
-    public string $creditcardexpirationDate;
-    public string $creditcardCVV;
-    public string $tranType = "Sale";
-    public string $shippingId;
-    public string $ipAddress;
-    public bool $billingSameAsShipping = true;
 
+    /**
+     * @OA\Property(type="string")
+     */
+    public string $shippingCity;
+
+    /**
+     * @OA\Property(type="string")
+     */
+    public string $shippingState;
+
+    /**
+     * @OA\Property(type="string")
+     */
+    public string $shippingCountry; // ALPHA 2
+
+    /**
+     * @OA\Property(type="string")
+     */
+    public string $shippingZip;
+
+    /**
+     * @OA\Property(type="string")
+     */
+    public string $phone;
+
+    /**
+     * @OA\Property(type="string")
+     */
+    public string $email;
+
+    /**
+     * @OA\Property(type="string")
+     */
+    public string $creditCardType;
+
+    /**
+     * @OA\Property(type="string")
+     */
+    public string $creditCardNumber;
+
+    /**
+     * @OA\Property(type="string")
+     */
+    public string $expirationDate;
+
+    /**
+     * @OA\Property(type="string")
+     */
+    public string $CVV;
+
+    /**
+     * @OA\Property(type="string")
+     */
+    public string $tranType = "Sale";
+
+    /**
+     * @OA\Property(type="string")
+     */
+    public string $shippingId;
+
+    /**
+     * @OA\Property(type="string")
+     */
+    public string $ipAddress;
+
+    /**
+     * @OA\Property(type="string")
+     */
+    public string $billingSameAsShipping = "YES";
+
+    /**
+     * @OA\Property(type="string")
+     */
     public string $campaignId;
 
+    /**
+     * @OA\Property(type="string")
+     */
     public array $offers;
+
 
     /**
      * @OA\Property(type="string")
@@ -66,4 +147,11 @@ class CreateOrder
      */
     public ?string $three_d_redirect_url;
 
+    /**
+     * @OA\Property(type="wallet_token")
+     */
+    public ?string $wallet_token;
+
 }
+
+
