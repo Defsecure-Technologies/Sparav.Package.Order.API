@@ -59,22 +59,22 @@ class CreateOrder
     /**
      * @OA\Property(type="string")
      */
-    public string $creditCardType;
+    public ?string $creditCardType;
 
     /**
      * @OA\Property(type="string")
      */
-    public string $creditCardNumber;
+    public ?string $creditCardNumber;
 
     /**
      * @OA\Property(type="string")
      */
-    public string $expirationDate;
+    public ?string $expirationDate;
 
     /**
      * @OA\Property(type="string")
      */
-    public string $CVV;
+    public ?string $CVV;
 
     /**
      * @OA\Property(type="string")
